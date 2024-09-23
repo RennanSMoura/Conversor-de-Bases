@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from
+url=(0066)file:///C:/Users/Marise%20Miranda/Downloads/Marises%20Machine.html -->
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+        </style>
+    </head>
+
+    <body>
+        <div class="video-background"></div>
+            <video autoplay muted loop>
+                <source src="Matrix Code Rain Screensaver - Short Version 4K.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+        <div class="content">
+        <h1>Marise's Machine</h1>
+        <header>
+            <a href="marises-machine.html">Converter decimais</a>
+            <a href="marises-machine-binario.html">Converter binários</a>
+            <a href="marises-machine-octal.html">Converter Octais</a>
+            <a href="marises-machine-hexadecimal.html">Converter Hexadecimais</a>
+        </header>
+        <center>
+        <div class="container">
+            <h2>Binario</h2>
+            <input id="demo1" type="text" placeholder="Valor em binario">
+
+            <br><br>
+
+            <h2>converter para:</h2>
+
+            <input onclick="aparecer_octal()" type="checkbox">
+            <b>Octal</b>
+            
+            <div
+                style="display: none; background-color: #dcdcdc; padding: 5px; 
+                color: rgb(0, 0, 0); width: 60%; height: 40px; font-weight: 500;"
+                id="demo2"></div>
+
+            <br>
+
+            <input onclick="aparecer_hexa()" type="checkbox">
+            <b>Hexadecimal</b>
+            <br>
+            <div
+                style="display: none; background-color: #dcdcdc; padding: 5px;margin-bottom: 15px;
+                 color: rgb(7, 7, 7); width: 60%; height: 40px; font-weight: 500;"
+                id="demo3"></div>
+
+            
+                <div>
+            <input onclick="aparecer_decimal()" type="checkbox">
+            <b>Decimal</b>
+            <br>
+            <div
+                style="display: none; background-color: #dcdcdc;  padding: 5px; color: rgb(5, 5, 5); width: 60%; height: 50px; font-weight: 500;"
+                id="demo4"></div>
+
+            <br><br>
+
+            <button onclick="converter()">Converter</button>
+            <button onclick="aparecersoma()">Deseja somar dois números binários?</button>
+            <div id="inserirSoma"></div>
+        </div>
+        </div>
+</center>
+
+        <script>
+
+            function converter() {
+                var binaria = parseInt(demo1.value, 2);
+                let octal = binaria.toString(8);
+                let hexadecimal = binaria.toString(16);
+                let decimal = binaria.toString(10);
+
+                console.log(decimal);
+                console.log(octal);
+                console.log(hexadecimal);
+                console.log(binaria);
+
+                document
+                    .getElementById("demo1")
+                    .innerHTML = ` ${binaria}`;
+                document
+                    .getElementById("demo2")
+                    .innerHTML = ` ${octal}`;
+                document
+                    .getElementById("demo3")
+                    .innerHTML = ` ${hexadecimal}`;
+                document
+                    .getElementById("demo4")
+                    .innerHTML = ` ${decimal}`;
+
+            }
+
+            function aparecer_decimal() {
+                demo4.style.display = 'block'
+            }
+
+            function aparecer_hexa() {
+                demo3.style.display = 'block'
+            }
+
+            function aparecer_octal() {
+                demo2.style.display = 'block'
+            }
+
+
+            function aparecersoma(){
+                inserirSoma.innerHTML = `Insira um valor: <input id="valor1"><br>
+                Insira um segundo valor: <input id="valor2">
+                <button onclick="somarNumeros()">Somar binários</button>
+                <div id="mostrarSomaBinaria"></div>
+                `
+            }
+
+            function somarNumeros(){
+                var binaria1 = parseInt(valor1.value, 2);
+                var binaria2 = parseInt(valor2.value, 2);
+                
+                let decimal1 = binaria1.toString(10);
+                let decimal2 = binaria2.toString(10);
+                
+                let somaDecimais = Number(decimal1) + Number(decimal2)
+
+                var conversaoSomado = somaDecimais.toString(2)
+                mostrarSomaBinaria.innerHTML = `O valor da soma dos números em binário ${conversaoSomado}`
+
+            }
+
+            document.bgColor = "#00ffff";
+        </script>
+    </body>
+</html>
